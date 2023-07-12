@@ -5,13 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.repiso.myphotoeditor.databinding.ActivityResultBinding;
+
 public class ResultActivity extends AppCompatActivity {
 
-    @SuppressLint("RestrictedApi")
+    ActivityResultBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+        binding=ActivityResultBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        if(getIntent()!=null){
+            binding.image.setImageURI(getIntent().getData());
+        }
+
 
 
     }

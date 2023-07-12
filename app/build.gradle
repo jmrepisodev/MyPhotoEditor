@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.repiso.myphotoeditor'
-    compileSdk 31
+    compileSdk 33
 
     viewBinding {
         enabled = true
@@ -18,7 +18,7 @@ android {
     defaultConfig {
         applicationId "com.repiso.myphotoeditor"
         minSdk 21
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -51,7 +51,8 @@ dependencies {
 
 
     // DS Photo Editor SDK
-    implementation(name:'ds-photo-editor-sdk-v10', ext:'aar')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation files('libs/ds-photo-editor-sdk-v10.aar')
 
     // SDK related dependencies
     implementation "io.reactivex.rxjava3:rxjava:3.1.4"
