@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == IMAGE_REQUEST_CODE) {
             if(data.getData() != null) {
-                Toast.makeText(getApplicationContext(),data.getData().toString(), Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(),data.getData().toString(), Toast.LENGTH_LONG).show();
                 Uri filepath=data.getData();
                 // If the input image uri for DS Photo Editor is "inputImageUri", launch the editor UI
                 Intent dsPhotoEditorIntent = new Intent(this, DsPhotoEditorActivity.class);
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 // will be saved in the specified folder on your device's external storage;
                 // If this is omitted, the edited photo will be saved to a folder
                 // named "DS_Photo_Editor" by default.
-                dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY, "imagenes");
+                dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY, "MyPhotoEditor");
                 // Optional customization: hide some tools you don't need as below
                 int[] toolsToHide = {DsPhotoEditorActivity.TOOL_ORIENTATION, DsPhotoEditorActivity.TOOL_CROP};
                 dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_TOOLS_TO_HIDE, toolsToHide);
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             Uri uri = getImageUri(photo);
             Intent dsPhotoEditorIntent = new Intent(this, DsPhotoEditorActivity.class);
             dsPhotoEditorIntent.setData(uri);
-            dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY, "Pico");
+            dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_OUTPUT_DIRECTORY, "MyPhotoEditor");
             int[] toolsToHide = {DsPhotoEditorActivity.TOOL_ORIENTATION, DsPhotoEditorActivity.TOOL_CROP};
             dsPhotoEditorIntent.putExtra(DsPhotoEditorConstants.DS_PHOTO_EDITOR_TOOLS_TO_HIDE, toolsToHide);
             startActivityForResult(dsPhotoEditorIntent, RESULT_CODE);
